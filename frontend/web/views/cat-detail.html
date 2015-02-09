@@ -1,0 +1,9 @@
+<h1>{{cat.name}}</h1>
+
+<ul class="cat-thumbs">
+    <li ng-repeat="img in cat.photos">
+        <a href="/photos/{{cat.id}}/{{img.file}}" class="thumb" ng-show="cat.photo.file"><img ng-src="/photos/{{cat.id}}/{{img.file}}" class="img-thumbnail"></a>
+    </li>
+</ul>
+<p>{{cat.description}}</p>
+<p>{{cat.address}}</p>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <!--Body content-->
+            <div class="row" ng-repeat="cat in cats | filter:query | orderBy:orderProp" class="thumbnail cat-listing">
+
+                <div class="col-md-11">
+                    <a href="#/cats/{{cat.id}}" class="thumb" ng-show="cat.photo.file"><img ng-src="/photos/{{cat.id}}/{{cat.photo.file}}" class="img-thumbnail"></a>
+                    <a href="#/cats/{{cat.id}}">{{cat.name}}</a>
+                    <p>{{cat.intro}}</p>
+                </div>
+                <div class="col-md-1">
+                    <a href="#/cats/{{cat.id}}/edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <!--Sidebar content-->
+            Поиск: <input ng-model="query">
+            Соритровать по:
+            <select ng-model="orderProp">
+                <option value="name">Алфавиту</option>
+                <option value="age">Дате добавления</option>
+            </select>
+        </div>
+    </div>
+</div>

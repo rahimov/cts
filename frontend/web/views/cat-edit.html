@@ -1,0 +1,56 @@
+<h1 ng-show="cat.id">Редактирование котика</h1>
+<h1 ng-show="!cat.id">Добавление котика</h1>
+
+<form name="formCat" class="form-horizontal">
+    <div class="form-group control-group" ng-class="{error: formCat.name.$invalid}">
+        <label class="col-sm-2 control-label">Имя</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" name="name" ng-model="cat.name" required>
+            <span ng-show="formCat.name.$error.required" class="help-inline">не заполнено</span>
+        </div>
+    </div>
+
+    <div class="form-group control-group" ng-class="{error: formCat.intro.$invalid}">
+        <label class="col-sm-2 control-label">Краткое описание</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="4" name="intro" ng-model="cat.intro"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group control-group" ng-class="{error: formCat.description.$invalid}">
+        <label class="col-sm-2 control-label">Полное описание</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="8" name="description" ng-model="cat.description"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group control-group" ng-class="{error: formCat.address.$invalid}">
+        <label class="col-sm-2 control-label">Контактная информация</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="4" name="address" ng-model="cat.address"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group control-group">
+        <div class="checkbox col-sm-offset-2 col-sm-10">
+            <label>
+                <input type="checkbox" name="published" ng-checked="cat.published" ng-model="cat.published"> Опубликован
+            </label>
+        </div>
+    </div>
+
+    <div class="panel panel-default ">
+        <div class="panel-heading">Фотографии</div>
+        <div class="panel-body">
+
+            <a href="#" class="thumbnail" ng-repeat="photo in cat.photos">
+                <img ng-src="/photos/{{cat.id}}/{{photo.file}}" class="img-thumbnail">
+            </a>
+        </div>
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <a href="#/" class="btn">Отмена</a>
+        <button ng-click="save()" class="btn btn-primary">Сохранить</button>
+    </div>
+</form>
