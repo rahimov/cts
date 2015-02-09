@@ -36,7 +36,7 @@ class Cat extends \yii\db\ActiveRecord
 	{
 		return [
 			[['intro', 'description','address'], 'string'],
-			[['description', 'gender'], 'required'],
+			[['description'], 'required'],
 			[['published'], 'integer'],
 			[['name'], 'string', 'max' => 50]
 		];
