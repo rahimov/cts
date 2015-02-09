@@ -17,6 +17,6 @@ catControllers.controller('CatEditCtrl', ['$scope', '$routeParams', 'Cat',
         });
 
         $scope.save = function () {
-            Cat.save();
+            Cat.update($scope.cat);
         };
     }]);
